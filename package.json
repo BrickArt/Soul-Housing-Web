@@ -1,0 +1,23 @@
+{
+  "name": "Housing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/app"
+  },
+  "keywords": [],
+  "author": "Artem Rebryk",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "jade": "^1.11.0",
+    "mongo-client": "^0.2.1",
+    "mongodb": "^2.2.31",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}

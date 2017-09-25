@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  body
+    .container
+      .row
+        .col
+        .col-lg-4.col-md-6.col-sm-10
+          .blockAuth
+            .username
+              img.authImg(src='svg/username.svg', alt='Username')
+              input.authInput(type='text', placeholder="Username", data-toggle="tooltip", data-placement="right", title="Tooltip on right")
+            .password
+              img.authImg(src='svg/password.svg', alt='Password')
+              input.authInput(type='password', placeholder="Password", data-toggle="tooltip", data-placement="right", title="Tooltip on right")
+            button.btn.authBtn.btn-light(type='button') LOG IN
+        .col
+    script(src='js/index.js')

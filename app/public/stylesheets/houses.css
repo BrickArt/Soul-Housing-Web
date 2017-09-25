@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400");
+body {
+  margin: 0;
+  padding: 0; }
+
+.header {
+  background-color: #358DE0;
+  width: 100%;
+  height: 60px; }
+
+.navBlock {
+  margin: 0 auto;
+  height: 60px;
+  width: 440px; }
+
+.nav {
+  float: left;
+  margin: 5px 33px 0 33px;
+  display: block; }
+
+.navImg1 {
+  width: 34px; }
+
+.navImg2 {
+  width: 35px;
+  margin-left: 3px; }
+
+.navImg3 {
+  width: 38px; }
+
+.navImg4 {
+  width: 27px;
+  margin-left: 12px; }
+
+.nav > h1 {
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto; }
+
+.scrollParent {
+  overflow: hidden; }
+
+.scroll {
+  overflow: auto;
+  height: 91vh; }
+  .scroll::-webkit-scrollbar {
+    width: 0; }
+
+.article {
+  border-bottom: 1px solid #EDEDED;
+  height: 75px; }
+  .article .house {
+    float: left;
+    display: block; }
+    .article .house h2, .article .house p {
+      font-size: 14px;
+      margin: 12px 0 0 15px; }
+    .article .house p {
+      color: #656565;
+      margin-top: 5px; }
+  .article .members {
+    float: right;
+    display: block; }
+    .article .members > img {
+      width: 13px;
+      float: left;
+      display: block; }
+    .article .members > p {
+      float: left;
+      display: block; }
+    .article .members .houseBtn {
+      margin: 30px 30px 0 30px; }
+    .article .members .bad {
+      margin-top: 37px;
+      margin-right: 4px; }
+    .article .members > p {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #656565; }
+
+.col-lg-5 {
+  border-left: 1px solid #EDEDED;
+  left: -10px;
+  padding-left: 0;
+  padding-right: 10px; }
+  .col-lg-5 .overview {
+    border-bottom: 1px solid #EDEDED;
+    padding: 7px 0 10px 10px;
+    left: -20px;
+    height: 208px; }
+    .col-lg-5 .overview .overviewImg {
+      float: left;
+      display: block;
+      width: 250px;
+      height: 200px; }
+    .col-lg-5 .overview .overviewStatus {
+      margin-top: 75px;
+      margin-left: 285px;
+      left: 500px;
+      display: block; }
+      .col-lg-5 .overview .overviewStatus .bad {
+        width: 50px;
+        float: left;
+        display: block;
+        padding-top: 5px; }
+      .col-lg-5 .overview .overviewStatus p {
+        font-size: 30px;
+        padding-left: 75px;
+        color: #95989A; }
+  .col-lg-5 .overviewName {
+    border-bottom: 1px solid #EDEDED;
+    padding: 11px 0 12px 22px; }
+    .col-lg-5 .overviewName h2, .col-lg-5 .overviewName p {
+      margin-bottom: 0;
+      font-size: 15px;
+      color: #808080; }
+  .col-lg-5 .overviewText {
+    border-bottom: 1px solid #EDEDED;
+    padding: 11px 0 12px 22px;
+    color: #95989A; }
+    .col-lg-5 .overviewText p {
+      margin-bottom: 0; }
+  .col-lg-5 .overviewButtons {
+    padding: 11px 0 12px 22px; }
+    .col-lg-5 .overviewButtons .houseGistList {
+      width: 435px;
+      height: 48px;
+      background-color: #5E82BC;
+      color: #fff;
+      border: none;
+      margin-bottom: 12px; }
+      .col-lg-5 .overviewButtons .houseGistList:hover {
+        background-color: #358DE0; }
+    .col-lg-5 .overviewButtons .houseControls {
+      padding: 12px 0;
+      margin-bottom: 28px; }
+      .col-lg-5 .overviewButtons .houseControls select, .col-lg-5 .overviewButtons .houseControls p {
+        width: 70px;
+        margin: 0 35px 0 35px;
+        float: left;
+        display: block;
+        font-size: 16px; }
+    .col-lg-5 .overviewButtons .houseAddPerson {
+      margin-top: 12px;
+      width: 435px;
+      height: 48px;
+      border: solid 1px green;
+      background-color: #fff; }
+
+/*# sourceMappingURL=houses.css.map */
