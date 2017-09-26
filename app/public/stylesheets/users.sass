@@ -1,3 +1,6 @@
+$green-color: #8DBC5E
+$red-color: #F5A3A3
+$red-btn: #D1A661
 $primary-color: #358DE0
 $secondary-color: #656565
 $border-color: #EDEDED
@@ -67,7 +70,7 @@ body
   border-bottom: 1px solid $border-color
   height: 75px
 
-  .house
+  .gist
     float: left
     display: block
 
@@ -79,29 +82,30 @@ body
       color: $secondary-color
       margin-top: 5px
 
-  .members
+  .gistStatus
     float: right
-    display: block
+    height: 75px
+    margin: 0 30px 0 0
+    padding-left: 30px
 
-    &>img
-      width: 13px
+    .Activity
       float: left
-      display: block
+      margin-top: 10px
 
-    &>p
-      float: left
-      display: block
+      .active
+        color: $green-color
 
-    .houseBtn
-      margin: 30px 30px 0 30px
-
-    .bad
-      margin-top: 37px
-      margin-right: 4px
-    &>p
-      margin-top: 30px
+    .Activity>p
+      margin: 3px 0 0 0
       font-size: 14px
       color: $secondary-color
+      text-align: center
+
+    .moreDetails
+      margin: 30px 0 0 30px
+      width: 13px
+      float: right
+
 
 .col-lg-5
   border-left: 1px solid $border-color
@@ -113,38 +117,56 @@ body
     border-bottom: 1px solid $border-color
     padding: 7px 0 10px 10px
     left: -20px
-    height: 208px
-
-
+    height: 170px
 
     .overviewImg
       float: left
       display: block
-      width: 250px
-      height: 200px
-
+      width: 156px
+      height: 156px
+      border-radius: 50%
+      background: url('../png/gist.png')
+      background-size: auto 156px
+      &>img
+        width: 156px
+        height: 156px
+        border-radius: 50%
 
     .overviewStatus
-      margin-top: 75px
-      margin-left: 285px
-      left: 500px
-      display: block
-
-
-      .bad
-        width: 50px
+      margin: 0 0 0 186px
+      h2
+        font-size: 20px
         float: left
         display: block
-        padding-top: 5px
 
-      p
-        font-size: 30px
-        padding-left: 75px
-        color: $text-color
+
+      .statusHeader
+        height: 115px
+        p
+          float: right
+          font-weight: bold
+          color: $red-color
+
+      .statusFoter
+        .active
+          font-weight: bold
+          color: $green-color
+          font-size: 16px
+          float: left
+          margin: 5px 0 0 50px
+        p
+          float: left
+          font-size: 14px
+          color: $text-color
+          margin: 4px 0 0 5px
+        img
+          float: right
 
   .overviewName
     border-bottom: 1px solid $border-color
     padding: 11px 0 12px 22px
+    h2
+      text-transform: uppercase
 
     h2, p
       margin-bottom: 0
@@ -159,45 +181,53 @@ body
       margin-bottom: 0
 
   .overviewButtons
-    padding: 11px 0 12px 22px
-    .houseGistList
-      width: 435px
+    padding: 11px 0 12px 10px
+    .gistBtn
+      width: 100%
       height: 48px
-      background-color: $btn-color
       color: #fff
       border: none
       margin-bottom: 12px
+      &:focus
+        outline: none
+    .gistPlace
+      background-color: $green-color
+      &:hover
+        background-color: #A6D875
+        cursor: pointer
+    .gistPaymentsHistory
+      background-color: $btn-color
       &:hover
         background-color: $primary-color
+        cursor: pointer
+    .gistShelterHistory
+      background-color: $red-btn
+      &:hover
+        background-color: #E0B879
+        cursor: pointer
 
-    .houseControls
-      padding: 12px 0
-      margin-bottom: 28px
-      select, input
-        width: 70px
-        margin: 0 35px 0 35px
+
+    .overviewControls
+      margin-bottom: 10px
+      &>button
+        background-color: #fff
+        border: none
+        color: #808080
+        &:focus
+          outline: none
+        &:hover
+          cursor: pointer
+      .gistEdit
         float: left
-        display: block
-        font-size: 16px
+        margin-left: 125px
+      .gistDel
+        float: right
+        margin-right: 125px
+
+
     .houseAddPerson
       margin-top: 12px
-      width: 435px
+      width: 100%
       height: 48px
       border: solid 1px green
       background-color: #fff
-.overviewControls
-  margin-bottom: 10px
-  &>button
-    background-color: #fff
-    border: none
-    color: #808080
-    &:focus
-      outline: none
-    &:hover
-      cursor: pointer
-  .gistEdit
-    float: left
-    margin-left: 125px
-  .gistDel
-    float: right
-    margin-right: 125px

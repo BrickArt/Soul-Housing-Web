@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/report.css')
+  body
+    .container
+      .header
+        .navBlock
+          button.nav
+            img.navImg1(src='svg/graphic.svg', alt='Graphic', onClick='location.href="/report"')
+            h1 Report
+          button.nav
+            img.navImg2(src='svg/house.svg', alt='House', onClick='location.href="/houses"')
+            h1 Houses
+          button.nav
+            img.navImg3(src='svg/people.svg', alt='People', onClick='location.href="/users"')
+            h1 Users
+          button.nav
+            img.navImg4(src='svg/dollar-coins.svg', alt='Dollar-coins', onClick='location.href="/payments"')
+            h1 Payments

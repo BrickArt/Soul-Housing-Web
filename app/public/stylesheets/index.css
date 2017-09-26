@@ -43,6 +43,9 @@ body {
     font-weight: 300;
     letter-spacing: 0; }
 
+.logo {
+  margin-left: 20px; }
+
 .username {
   font-size: 14px;
   border-bottom: 1px solid #fff;

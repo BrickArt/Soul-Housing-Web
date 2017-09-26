@@ -1,0 +1,250 @@
+$green-color: #8DBC5E
+$red-color: #F5A3A3
+$red-btn: #FF7777
+$primary-color: #358DE0
+$secondary-color: #656565
+$border-color: #EDEDED
+$text-color: #95989A
+$btn-color: #5E82BC
+$white-color: #fff
+$black-text-color: #3B3B3B
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400')
+
+body
+  margin: 0
+  padding: 0
+
+//==========================================
+// Header
+//==========================================
+.header
+  background-color: $primary-color
+  width: 100%
+  height: 60px
+
+.navBlock
+  width: 315px
+  margin: 0 auto
+
+.nav
+  width: 60px
+  height: 50px
+  float: left
+  margin-left: 25px
+  margin-top: 5px
+  background-color: $primary-color
+  border: none
+  &:first-child
+    margin-left: 0
+  &:hover
+    cursor: pointer
+  &:focus
+    outline: none
+  & > h1
+    font-size: 12px
+    text-align: center
+    color: #fff
+    margin: 0 auto
+  .navImg1
+    width: 34px
+    margin: 0 auto
+  .navImg2
+    width: 35px
+    margin: 0 auto
+  .navImg3
+    width: 38px
+    margin: 0 auto
+  .navImg4
+    width: 27px
+    margin: 0 auto
+
+//==========================================
+// Content
+//==========================================
+.scrollParent
+  overflow: hidden
+
+.scroll
+  overflow: auto
+  height: 91vh
+  &::-webkit-scrollbar
+    width: 0
+
+.article
+  border-bottom: 1px solid $border-color
+  height: 75px
+
+  .gist
+    float: left
+    display: block
+
+    h2, p
+      font-size: 14px
+      margin: 12px 0 0 15px
+
+    p
+      color: $secondary-color
+      margin-top: 5px
+
+  .gistStatus
+    float: right
+    height: 75px
+    margin: 0 30px 0 0
+    padding-left: 30px
+
+    .Activity
+      float: left
+      margin-top: 10px
+
+      .active
+        color: $green-color
+
+    .Activity>p
+      margin: 3px 0 0 0
+      font-size: 14px
+      color: $secondary-color
+      text-align: center
+
+    .moreDetails
+      margin: 30px 0 0 30px
+      width: 13px
+      float: right
+
+
+.col-lg-5
+  border-left: 1px solid $border-color
+  left: -10px
+  padding-left: 0
+  padding-right: 10px
+
+  .overview
+    border-bottom: 1px solid $border-color
+    padding: 7px 0 10px 10px
+    left: -20px
+    height: 130px
+
+    .overviewImg
+      float: left
+      display: block
+      width: 107px
+      height: 107px
+      border-radius: 50%
+      background: url('../png/gist.png')
+      background-size: auto 107px
+      &>img
+        width: 156px
+        height: 156px
+        border-radius: 50%
+
+    .overviewStatus
+      margin: 0 0 0 80px
+      height: 100px
+      width: 165px
+      float: left
+      .overviewStatusName
+        margin-bottom: 25px
+      .overviewStatusName>h2
+        font-size: 20px
+      .overviewStatusBalance>h3
+        font-size: 18px
+        float: left
+        margin: 9px 0 0 0
+      .overviewStatusBalance>p
+        font-size: 24px
+        color: $red-color
+        font-weight: bold
+        margin: 0 0 0 70px
+      .overviewStatusLast
+        margin-top: 5px
+      .overviewStatusLast>h3
+        font-size: 14px
+        float: left
+        margin: 3px 5px 0 0
+      .overviewStatusLast>p
+        font-size: 14px
+
+    .overviewExcel
+      margin: 0 0 0 405px
+      &>button
+        background-color: $white-color
+        border: none
+        &:focus
+          outline: none
+        &:hover
+          cursor: pointer
+        &>img
+          width: 30px
+
+
+  .payment
+    height: 75px
+    border-bottom: 1px solid $border-color
+    padding: 15px 0 12px 22px
+    .paymentData
+      padding: 0 0 0 18px
+      float: left
+      &>p
+        font-size: 14px
+        margin: 0
+      &>h3
+        font-size: 18px
+        margin: 0
+        color: $green-color
+        text-align: center
+    .paymentDiscription
+      margin: -3px 0 0 175px
+      color: $black-text-color
+      &>p
+        font-size: 18px
+        margin: 0
+      &>h3
+        font-size: 20px
+        margin: 0
+
+
+
+
+  .overviewButtons
+    padding: 11px 0 12px 10px
+    .paymentBtn
+      width: 100%
+      height: 48px
+      color: #fff
+      border: none
+      margin-bottom: 12px
+      &:focus
+        outline: none
+    .gistPlace
+      background-color: $green-color
+      &:hover
+        background-color: #A6D875
+        cursor: pointer
+    .gistPaymentsHistory
+      background-color: $btn-color
+      &:hover
+        background-color: $primary-color
+        cursor: pointer
+    .gistShelterHistory
+      background-color: $red-btn
+      &:hover
+        background-color: #FA8787
+        cursor: pointer
+
+
+    .overviewControls
+      margin-bottom: 10px
+      &>button
+        background-color: #fff
+        border: none
+        color: #808080
+        &:focus
+          outline: none
+        &:hover
+          cursor: pointer
+      .gistEdit
+        float: left
+        margin-left: 125px
+      .gistDel
+        float: right
+        margin-right: 125px

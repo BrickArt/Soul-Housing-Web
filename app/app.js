@@ -63,12 +63,26 @@ app.get('/houses', function (req, res, next) {
   res.render('houses', {houses});
 });
 
+app.get('/users', function (req, res, next) {
+  res.render('users', {houses});
+});
 
+app.get('/payments', function (req, res, next) {
+  res.render('payments', {houses});
+});
 
+app.get('/report', function (req, res, next) {
+  res.render('report', {houses});
+});
 //===========================================
 // Server
 //===========================================
-app.listen(process.env.PORT || 3000, function (){
-  console.log('Heroku app listening!')
 
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
 });
+
+// app.listen(process.env.PORT || 3000, function (){
+//   console.log('Heroku app listening!')
+//
+// });

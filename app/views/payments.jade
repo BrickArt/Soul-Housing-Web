@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/payments.css')
+  body
+    .container
+      .header
+        .navBlock
+          button.nav
+            img.navImg1(src='svg/graphic.svg', alt='Graphic', onClick='location.href="/report"')
+            h1 Report
+          button.nav
+            img.navImg2(src='svg/house.svg', alt='House', onClick='location.href="/houses"')
+            h1 Houses
+          button.nav
+            img.navImg3(src='svg/people.svg', alt='People', onClick='location.href="/users"')
+            h1 Users
+          button.nav
+            img.navImg4(src='svg/dollar-coins.svg', alt='Dollar-coins', onClick='location.href="/payments"')
+            h1 Payments
+
+
+
+      .mainBlock
+        .row
+          .col-lg-7
+            .scrollParent
+              .scroll
+                each house in houses
+                  .article
+                    .gist
+                      h2 gist.name
+                      p lorem ipsum
+                    .gistStatus
+                      .Activity
+                        p PILOT
+                        p.active Active
+                      img.moreDetails(src='svg/join.svg', alt='join')
+                      
+                      
+                      
+          .col-lg-5
+            .scrollParent
+              .scroll
+                .overview
+                  .overviewImg
+                  .overviewStatus
+                    .overviewStatusName
+                      h2 Sara Conor
+                    .overviewStatusBalance
+                      h3 Balance
+                      p -1234 $
+                    .overviewStatusLast
+                      h3 Last payment
+                      p 01/01/2017
+                  .overviewExcel
+                    button
+                      img(src='svg/excel.svg', alt='Exel')
+                each house in houses
+                  .payment
+                    .paymentData
+                      p 13.03.1995
+                      h3 1234 $
+                    .paymentDiscription
+                      p Department of Social Protection
+                      h3 CASH
+                  
+                  
+                .overviewButtons
+                  .overviewControls
+                    button.gistEdit
+                      img(src='png/edit.png', alt='Edit')
+                      p Edit
+                    button.gistDel
+                      img(src='png/del.png', alt='Del')
+                      p Del
+                  button.gistPaymentsHistory.paymentBtn Add Payment
+                  button.gistShelterHistory.paymentBtn User Information
