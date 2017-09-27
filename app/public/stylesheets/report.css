@@ -44,4 +44,74 @@ body {
     width: 27px;
     margin: 0 auto; }
 
+.row {
+  margin: 10px 0 0 0;
+  width: 100%; }
+  .row .col-lg-3 {
+    margin: 0 auto; }
+  .row button {
+    cursor: pointer;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: #fff; }
+  .row .reportHeader {
+    height: 78px; }
+    .row .reportHeader .reportIcon {
+      float: left; }
+      .row .reportHeader .reportIcon > img {
+        width: auto;
+        height: 40px;
+        margin: 15px 0 0 10px; }
+    .row .reportHeader .reportStat {
+      text-align: right;
+      color: #fff;
+      margin-right: 10px; }
+      .row .reportHeader .reportStat > h2 {
+        font-size: 38px;
+        padding: 8px 0 0 0;
+        margin: 0; }
+      .row .reportHeader .reportStat > p {
+        font-size: 14px; }
+  .row .reportFooter {
+    height: 37px;
+    margin-top: 5px; }
+    .row .reportFooter .reportView {
+      margin: 0 0 0 17px; }
+      .row .reportFooter .reportView p {
+        font-size: 18px;
+        float: left;
+        font-weight: 600; }
+    .row .reportFooter .reportViewBtn img {
+      margin: 0 0 0 95px; }
+  .row .rooms {
+    height: 113px; }
+    .row .rooms .reportHeader {
+      background-color: #3c87be; }
+    .row .rooms .reportFooter {
+      color: #3c87be; }
+  .row .amount {
+    height: 113px; }
+    .row .amount .reportHeader {
+      background-color: #6DC070; }
+    .row .amount .reportFooter {
+      color: #6DC070; }
+  .row .guests {
+    height: 113px; }
+    .row .guests .reportHeader {
+      background-color: #F2B960; }
+    .row .guests .reportFooter {
+      color: #F2B960; }
+  .row .houses {
+    height: 113px; }
+    .row .houses .reportHeader {
+      background-color: #FD8263; }
+    .row .houses .reportFooter {
+      color: #FD8263; }
+
+.charts {
+  margin: 20px 0 0 0; }
+  .charts img {
+    width: 100%; }
+
 /*# sourceMappingURL=report.css.map */

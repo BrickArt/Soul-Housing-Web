@@ -18,3 +18,64 @@ block content
           button.nav
             img.navImg4(src='svg/dollar-coins.svg', alt='Dollar-coins', onClick='location.href="/payments"')
             h1 Payments
+            
+            
+            
+      .row
+        .col-lg-3
+          button.rooms(onClick='location.href="/payments"')
+            .reportHeader
+              .reportIcon
+                img(src='png/viewHouse.png')
+              .reportStat
+                h2 56
+                p How many free rooms
+            .reportFooter
+              .reportView
+                p View details
+              .reportViewBtn
+                img(src='png/viewBlue.png')
+        .col-lg-3
+          button.amount
+            .reportHeader
+              .reportIcon
+                img(src='svg/dollar-coins.svg')
+              .reportStat
+                h2 62654
+                p Total amount
+            .reportFooter
+              .reportView
+                p View details
+              .reportViewBtn
+                img(src='png/viewGreen.png')
+        .col-lg-3
+          button.guests
+            .reportHeader
+              .reportIcon
+                img(src='png/viewGuist.png')
+              .reportStat
+                h2 62654
+                p How many guests
+            .reportFooter
+              .reportView
+                p View details
+              .reportViewBtn
+                  img(src='png/viewYellow.png')
+        .col-lg-3
+          button.houses
+            .reportHeader
+              .reportIcon
+                img(src='png/viewHouse2.png')
+              .reportStat
+                h2 12
+                p Total houses
+            .reportFooter
+              .reportView
+                p View details
+              .reportViewBtn
+                img(src='png/viewRed.png')
+      .row.charts
+        .col-lg-6
+          img(src='png/chart.png')
+        .col-lg-6
+          img(src='png/pie.png')

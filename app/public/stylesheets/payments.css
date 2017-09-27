@@ -45,17 +45,28 @@ body {
     margin: 0 auto; }
 
 .scrollParent {
-  overflow: hidden; }
+  overflow: hidden;
+  margin-right: -7px; }
 
 .scroll {
   overflow: auto;
   height: 91vh; }
   .scroll::-webkit-scrollbar {
-    width: 0; }
+    width: 7px;
+    border-radius: 10px; }
+  .scroll::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.08); }
+  .scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.15); }
+    .scroll::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.4); }
 
 .article {
   border-bottom: 1px solid #EDEDED;
   height: 75px; }
+  .article:hover {
+    background-color: #EDEDED; }
   .article .gist {
     float: left;
     display: block; }
@@ -85,11 +96,32 @@ body {
       width: 13px;
       float: right; }
 
+.addBtn {
+  position: absolute;
+  top: 570px;
+  left: 25px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: #8DBC5E;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .addBtn:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .addBtn:focus {
+    outline: none; }
+  .addBtn p {
+    font-size: 40px;
+    color: #fff;
+    position: relative;
+    top: -4px;
+    left: 0px; }
+
 .col-lg-5 {
-  border-left: 1px solid #EDEDED;
-  left: -10px;
+  left: -7px;
   padding-left: 0;
-  padding-right: 10px; }
+  padding-right: 15px; }
   .col-lg-5 .overview {
     border-bottom: 1px solid #EDEDED;
     padding: 7px 0 10px 10px;
