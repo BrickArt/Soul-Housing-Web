@@ -86,8 +86,20 @@ body {
     .article .members > p {
       float: left;
       display: block; }
-    .article .members .houseBtn {
-      margin: 30px 30px 0 30px; }
+    .article .members button {
+      margin: 7px;
+      height: 60px;
+      width: 60px;
+      box-sizing: border-box;
+      border: none;
+      background-color: transparent; }
+      .article .members button:focus {
+        outline: none; }
+      .article .members button:hover {
+        cursor: pointer; }
+      .article .members button .houseBtn {
+        margin: 0 30px 0 20px;
+        width: 10px; }
     .article .members .bad {
       margin-top: 37px;
       margin-right: 4px; }
@@ -265,5 +277,36 @@ body {
     border: none;
     padding: 10px 0;
     cursor: pointer; }
+
+.addDiscription {
+  min-height: 65px;
+  border-bottom: 1px solid #EDEDED; }
+  .addDiscription textarea {
+    margin: 10px 15px 10px 15px;
+    overflow: hidden;
+    width: 430px;
+    height: 200px;
+    border: none; }
+
+.addButtons button {
+  width: 430px;
+  margin: 10px 0px 0 15px;
+  padding: 10px 0;
+  color: #fff;
+  border: none; }
+  .addButtons button:focus {
+    outline: none; }
+  .addButtons button:hover {
+    cursor: pointer; }
+
+.addButtons .addSave {
+  background-color: #8DBC5E; }
+  .addButtons .addSave:hover {
+    background-color: #A1D46E; }
+
+.addButtons .addCancel {
+  background-color: #FF7722; }
+  .addButtons .addCancel:hover {
+    background-color: #FD8D47; }
 
 /*# sourceMappingURL=houses.css.map */

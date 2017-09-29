@@ -1,0 +1,41 @@
+.tatata
+  .right
+    .overview
+      .overviewImg
+        img(src='png/house.png', alt='Bad')
+      .overviewStatus
+        img.bad(src='svg/bad.svg', alt='Bad')
+        p 25/13
+    .overviewName
+      h2= name
+    .overviewName
+      p= adress
+    .overviewText
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaquis nostrud exercitation ullamco laboris nisi ut aliquip e   llamco laboris nisi ut aliquip ex ea commodo consequat.aboris nisi ut aliquip ex eaquis nexercitation ullamco laboris nisi ut aliquip e   llamco laboris nisi ut aliquip ex ea commodo consequat. 
+    .overviewButtons
+      .overviewControls
+        button.gistEdit
+          img(src='png/edit.png', alt='Edit')
+          p Edit
+        button.gistDel(value= id)
+          img(src='png/del.png', alt='Del')
+          p Del
+      button.houseGistList View guest list
+      .houseControls
+        select(class="" value="Room" placeholder="Room") Room
+          option(disabled selected) Room
+          option 2
+          option 3
+          option 4
+          option 5
+          
+        select(class="")
+          option(disabled selected) Bed
+          option 2
+          option 3
+          option 4
+          option 5
+          
+        input(placeholder='Price' checked='lalala')
+          
+      button.houseAddPerson Place a Person

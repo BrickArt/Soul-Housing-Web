@@ -81,6 +81,17 @@ body {
     height: 75px;
     margin: 0 30px 0 0;
     padding-left: 30px; }
+    .article .gistStatus button {
+      margin: 7px;
+      height: 60px;
+      width: 60px;
+      box-sizing: border-box;
+      border: none;
+      background-color: transparent; }
+      .article .gistStatus button:focus {
+        outline: none; }
+      .article .gistStatus button:hover {
+        cursor: pointer; }
     .article .gistStatus .Activity {
       float: left;
       margin-top: 10px; }
@@ -226,5 +237,98 @@ body {
       height: 48px;
       border: solid 1px green;
       background-color: #fff; }
+
+.addPhoto {
+  height: 140px;
+  border-bottom: 1px solid #EDEDED; }
+  .addPhoto .uploadPhoto {
+    background-color: #fff;
+    border: none;
+    margin: 30px 0 0 175px;
+    color: #358DE0; }
+
+.addText {
+  border-bottom: 1px solid #EDEDED;
+  height: 65px;
+  padding: 18px 15px 0 15px; }
+
+.addTitle input, .addAddress input {
+  border: none;
+  width: 100%; }
+  .addTitle input:focus, .addAddress input:focus {
+    outline: none; }
+
+.addRoom {
+  color: #95989A; }
+  .addRoom .addRoomLeft {
+    width: 150px;
+    float: left; }
+    .addRoom .addRoomLeft > .room {
+      float: left; }
+  .addRoom .addRoomRight {
+    margin-left: 240px;
+    height: 20px; }
+    .addRoom .addRoomRight input {
+      width: 20px;
+      float: left;
+      border: none;
+      margin: -2px 10px;
+      text-align: right;
+      font-size: 20px; }
+      .addRoom .addRoomRight input:focus {
+        outline: none; }
+    .addRoom .addRoomRight button {
+      float: left;
+      background-color: #fff;
+      border: none;
+      cursor: pointer; }
+      .addRoom .addRoomRight button:focus {
+        outline: none; }
+    .addRoom .addRoomRight p {
+      width: 50px;
+      float: left;
+      margin: 3px 0 0 15px; }
+
+.addRoomBtn {
+  padding: 0; }
+  .addRoomBtn button {
+    width: 430px;
+    margin: 10px 0px 10px 15px;
+    background-color: #358DE0;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    cursor: pointer; }
+
+.addDiscription {
+  min-height: 65px;
+  border-bottom: 1px solid #EDEDED; }
+  .addDiscription textarea {
+    margin: 10px 15px 10px 15px;
+    overflow: hidden;
+    width: 430px;
+    height: 200px;
+    border: none; }
+
+.addButtons button {
+  width: 430px;
+  margin: 10px 0px 0 15px;
+  padding: 10px 0;
+  color: #fff;
+  border: none; }
+  .addButtons button:focus {
+    outline: none; }
+  .addButtons button:hover {
+    cursor: pointer; }
+
+.addButtons .addSave {
+  background-color: #8DBC5E; }
+  .addButtons .addSave:hover {
+    background-color: #A1D46E; }
+
+.addButtons .addCancel {
+  background-color: #FF7722; }
+  .addButtons .addCancel:hover {
+    background-color: #FD8D47; }
 
 /*# sourceMappingURL=users.css.map */
