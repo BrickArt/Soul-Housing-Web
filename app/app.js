@@ -11,6 +11,8 @@ var jade = require('jade');
 
 var app = express();
 
+
+
 //===========================================
 // Config
 //===========================================
@@ -66,6 +68,8 @@ var houses = [
   },
 ];
 
+
+
 //===========================================
 // Router
 //===========================================
@@ -77,33 +81,38 @@ app.get('/login', function (req, res) {
   res.sendStatus(200);
 });
 
+
+//==========HOUSES==========
 app.get('/houses', function (req, res, next) {
   res.render('houses', {houses});
 });
+
+//----------open----------
 app.post('/houses/open', function (req, res, next) {
   console.log(req.body)
-  res.render('houses-open', {
+  res.render('houses/houses-open', {
     name: req.body.name,
     adress: req.body.adress,
     id: req.body.id,
   });
-  console.log("lalala");
   res.sendStatus(200);
-});
-app.post('/houses/add', function (req, res, next) {
-  res.render('houses-add');
-  console.log("lalala");
-  res.sendStatus(200);
-});
-app.post('/houses/add/cancel', function (req, res, next) {
-  res.render('houses-cancel.jade');
-  console.log("lalala");
-  res.sendStatus(200);
-  res.end();
 });
 
-app.post('/houses/add/add', function (req, res, next) {
-  res.render('houseArticle', {
+//----------add----------
+app.post('/houses/add', function (req, res, next) {
+  res.render('houses/houses-add');
+  res.sendStatus(200);
+});
+
+app.post('/houses/room', function (req, res, next) {
+  var rooms = req.body;
+  res.render('houses/houseRoom', rooms);
+  res.sendStatus(200);
+
+});
+
+app.post('/houses/save', function (req, res, next) {
+  res.render('houses/houseArticle', {
     name: req.body.name,
     adress: req.body.adress,
     id: req.body.id,
@@ -113,14 +122,20 @@ app.post('/houses/add/add', function (req, res, next) {
   res.end();
 });
 
+app.post('/houses/cancel', function (req, res, next) {
+  console.log("Cancel.");
+  res.sendStatus(200);
+  res.end();
+});
+
+
+
+//==========USERS==========
 app.get('/users', function (req, res, next) {
   res.render('users', {houses});
 });
-app.post('/users/add', function (req, res, next) {
-  res.render('user-add');
-  console.log("lalala");
-  res.sendStatus(200);
-});
+
+//----------open----------
 app.post('/users/open', function (req, res, next) {
   console.log(req.body)
   res.render('users-open', {
@@ -131,12 +146,14 @@ app.post('/users/open', function (req, res, next) {
   console.log("lalala");
   res.sendStatus(200);
 });
-app.post('/users/add/cancel', function (req, res, next) {
 
+//----------add----------
+app.post('/users/add', function (req, res, next) {
+  res.render('user-add');
   console.log("lalala");
   res.sendStatus(200);
-  res.end();
 });
+
 app.post('/users/add/add', function (req, res, next) {
   res.render('users-article', {
     name: req.body.name,
@@ -148,10 +165,22 @@ app.post('/users/add/add', function (req, res, next) {
   res.end();
 });
 
+app.post('/users/add/cancel', function (req, res, next) {
+  console.log("lalala");
+  res.sendStatus(200);
+  res.end();
+});
+
+
+
+//==========PAYMENTS==========
 app.get('/payments', function (req, res, next) {
   res.render('payments', {houses});
 });
 
+
+
+//==========REPORT==========
 app.get('/report', function (req, res, next) {
   res.render('report', {houses});
 });
@@ -159,11 +188,11 @@ app.get('/report', function (req, res, next) {
 // Server
 //===========================================
 
-// app.listen(3000, function () {
-//   console.log('Example app listening on port 3000!')
-// });
-
-app.listen(process.env.PORT || 3000, function (){
-  console.log('Heroku app listening!')
-
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
 });
+
+// app.listen(process.env.PORT || 3000, function (){
+//   console.log('Heroku app listening!')
+//
+// });

@@ -1,150 +1,230 @@
-function Model(data){
+function Model(){
   var self = this;
 
+  self.rooms = [];
+
+
+  self.clean = function (){
+    self.rooms = [];
+  };
+
+  self.roomAdd = function (item){
+    if (item.length === 0){
+      return;
+    };
+    self.rooms.forEach(function(room, i, rooms){
+      console.log(i);
+      if (room.id === null){
+        room[i] = item;
+      } else {
+
+      }
+    });
+    self.rooms.push(item);
+    return self.rooms;
+  };
+  self.roomDel = function (){
+
+  };
+
 };
+
+
 
 function View(model){
   var self = this;
 
   self.elements = {
-    username: $('.username > input'),
-    password: $('.password > input'),
     addBtn: $('.addBtn'),
-    block: $('.right'),
+    right: $('.right'),
     cancelBtn: $('.addCancel'),
     openBtn: $('.openBtn'),
     delBtn: $('.gistDel'),
     houseBlock: $('.houseBlock'),
-
-
-
+    rooms: $('.rooms'),
   };
 
-  self.delete = function (block, id){
+//==========Show-Hide==========
+
+//----------Plus button----------
+  self.addBtnShow = function (){
+    var button = self.elements.addBtn;
+    button.show();
+  };
+
+  self.addBtnHide = function (){
+    var button = self.elements.addBtn;
+    button.hide();
+  };
+
+//----------Right----------
+  self.rightShow = function (){
+    var right = self.elements.right;
+    right.show();
+  };
+
+  self.rightHide = function (){
+    var right = self.elements.right;
+    right.hide();
+  };
+
+
+//==========Functions==========
+  self.open = function (data){
+    var right = self.elements.right;
+    right.html(data);
+  };
+
+  self.delete = function (id){
     $('#' + id).slideUp();
-    console.log('ulala')
-    $('.tatata').hide();
   };
 
-
-
-
-
-
-
-  self.openBlock = function (block, addBtn){
-    $.ajax({
-      method: "POST",
-      url: "/houses/add"
-    }).done(function (data){
-      block.html(data);
-      addBtn.hide();
-    });
+  self.add = function (data){
+    var right = self.elements.right;
+    right.html(data);
+    console.log('Add window is opened!');
   };
 
-  self.cancelAdd = function (block, addBtn){
-    $.ajax({
-      method: "POST",
-      url: "/houses/add/cancel",
-    }).done(function (data){
-      block.html(data);
-      addBtn.show();
-    });
+  self.roomAdd = function (data){
+    var rooms = $('.rooms');
+    rooms.append(data);
   };
 
-
-  self.addSave = function(title, adress, id, house, block){
-    console.log(title);
-    // if (addSave.isLoaded != true){
-      $.ajax({
-        method: "POST",
-        url: "/houses/add/add",
-        data: {
-          name: title,
-          adress: adress,
-          id: id,
-        },
-      }).done(function (data){
-        house.append(data);
-        $('.tatata').slideUp();
-        console.log('done');
-      });
-    // } addSave.isLoaded = true;
+  self.roomDel = function (id){
+    $('#room-' + id).slideUp();
   };
+
+  self.save = function(data){
+    var house = self.elements.houseBlock;
+    house.append(data);
+  };
+
 
 
 };
+
+
+
 
 function Controller(model, view){
   var self = this;
 
-  view.elements.addBtn.on('click', add);
-  view.elements.cancelBtn.on('click', cancel);
-
-  $(document).delegate( ".openBtn", "click", open);
+  $(document).delegate( ".houseBtn", "click", open);
   $(document).delegate( ".gistDel", "click", del);
-  $(document).delegate(".addSave", "click", addSave);
+  //edit
+  $(document).delegate( ".addBtn", "click", add);
+  $(document).delegate( ".roomAdd", "click", roomAdd);
+  $(document).delegate( ".roomDel", "click", roomDel);
 
-
-  function add() {
-    var block = view.elements.block;
-    var addBtn = view.elements.addBtn;
-    view.openBlock(block, addBtn);
-  };
-
-  function cancel() {
-    var block = view.elements.block;
-    var addBtn = view.elements.addBtn;
-    view.cancelAdd(block, addBtn);
-  };
+  $(document).delegate( ".addSave", "click", save);
+  $(document).delegate( ".addCancel", "click", cancel);
 
   function open (){
-    var block = view.elements.block;
-    var openBtn = view.elements.openBtn;
-    var addBtn = view.elements.addBtn;
     var id = $(this).attr('value');
-    console.log(id);
 
-    function openHouse (id, block){
-      $.ajax({
-        method: "POST",
-        url: "/houses/open",
-        data: {
-          name: $('#houseName_' + id).html(),
-          adress: $('#houseAdress_' + id).html(),
-          id: id
-        }
-      }).done(function(data){
-        block.html(data);
-        addBtn.show();
-      });
-    };
-
-    openHouse(id, block);
+    $.ajax({
+      method: "POST",
+      url: "/houses/open",
+      data: {
+        name: $('#houseName_' + id).html(),
+        adress: $('#houseAdress_' + id).html(),
+        id: id
+      }
+    }).done(function(data){
+      view.open(data);
+      view.addBtnShow();
+      view.rightShow();
+    });
+    return false;
   };
 
   function del(){
-    var block = view.elements.block;
     var id = $(this).attr('value');
-    view.delete(block, id);
-    console.log(id);
+
+    view.delete(id);
+    view.rightHide();
+    console.log(id + ' - house deleted!');
   };
 
-  function addSave(){
-    var title = $('.addTitle > input').val();
+  function add() {
+    $.ajax({
+      method: "POST",
+      url: "/houses/add",
+    }).done(function (data){
+      view.add(data);
+      view.addBtnHide();
+      view.rightShow();
+      model.clean();
+    });
+    return false;
+  };
+
+  function roomAdd (){
+    var id = model.rooms.length;
+    console.log(id);
+    //var id = Date.now();
+    $.ajax({
+      method: "POST",
+      url: "/houses/room",
+      data: {
+        id: id,
+      },
+    }).done(function (data){
+      view.roomAdd(data);
+      console.log('room is added');
+      var item = {id: id};
+      model.roomAdd(item.id);
+    });
+    return false;
+  };
+
+  function roomDel (){
+    var id = $(this).attr('value')
+    view.roomDel(id);
+    return false;
+  };
+
+  function save(){
+    var title  = $('.addTitle > input').val();
     var adress = $('.addAddress > input').val();
-    var house = view.elements.houseBlock;
-    var block = view.elements.block;
     var id = Date.now();
-    console.log(id);
-    view.addSave(title, adress, id, house, block);
 
+    $.ajax({
+      method: "POST",
+      url: "/houses/save",
+      data: {
+        name: title,
+        adress: adress,
+        id: id,
+      },
+    }).done(function (data){
+      view.save(data);
+      view.addBtnShow();
+      view.rightHide();
+
+      console.log('House is saved!');
+    });
+    return false;
   };
+
+  function cancel() {
+    $.ajax({
+      method: "POST",
+      url: "/houses/cancel",
+    }).done(function (){
+      view.addBtnShow();
+      view.rightHide();
+
+      console.log('Cancel...');
+    });
+    return false;
+  };
+
+
 };
 
 $(function(){
-  var data = {username: 'admin', password: 'admin'};
-  var model = new Model(data);
+  var model = new Model();
   var view = new View(model);
   var controller = new Controller(model, view);
 });

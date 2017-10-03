@@ -1,0 +1,10 @@
+.article(id= id)
+  .gist
+    h2(id= 'gistName_' + id)= name
+    p lorem ipsum
+  .gistStatus
+    .Activity
+      p PILOT
+      p.active(id= 'gistStastus_' + id)= status
+    button.openBtn(value= id)
+      img.moreDetails(src='svg/join.svg', alt='join')
