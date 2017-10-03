@@ -135,15 +135,16 @@ app.get('/users', function (req, res, next) {
   res.render('users', {houses});
 });
 
+app.post('/users/init', function (req, res, next) {
+  console.log(req.body)
+  res.render('users/user-left', req.body);
+});
+
 //----------open----------
 app.post('/users/open', function (req, res, next) {
   console.log(req.body)
-  res.render('users-open', {
-    name: req.body.name,
-    status: req.body.adress,
-    id: req.body.id,
-  });
-  console.log("lalala");
+   res.render('users/users-open', req.body);
+  console.log("user " + req.body.id + " is opened!");
   res.sendStatus(200);
 });
 
@@ -188,11 +189,11 @@ app.get('/report', function (req, res, next) {
 // Server
 //===========================================
 
-// app.listen(3000, function () {
-//   console.log('Example app listening on port 3000!')
-// });
-
-app.listen(process.env.PORT || 3000, function (){
-  console.log('Heroku app listening!')
-
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
 });
+
+// app.listen(process.env.PORT || 3000, function (){
+//   console.log('Heroku app listening!')
+//
+// });

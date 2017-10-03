@@ -12,19 +12,40 @@ function Model(){
     if (item.length === 0){
       return;
     };
-    self.rooms.forEach(function(room, i, rooms){
-      console.log(i);
-      if (room.id === null){
-        room[i] = item;
-      } else {
+    if (self.rooms.length === 0){
+      self.rooms.push(item);
+      console.log('first room')
+      return self.rooms;
+    } else {
+      console.log(item);
+      self.rooms.forEach(function(room, i, rooms){
+        if (room.id === null) {
+          self.rooms[i] = item;
+          console.log('last room')
+          console.log(room)
+          return
+        };
+      });
+      console.log('eeee')
+      self.rooms.push(item);
+      return self.rooms;
+    };
 
+
+
+  };
+  self.roomDel = function (id){
+    console.log('del room')
+    console.log(id)
+    self.rooms.forEach(function(room, i, rooms){
+      console.log(room.id)
+      if (room.id == id){
+        console.log('success')
+        room.id = null;
+        console.log(self.rooms)
       }
     });
-    self.rooms.push(item);
-    return self.rooms;
-  };
-  self.roomDel = function (){
-
+    return;
   };
 
 };
@@ -172,8 +193,8 @@ function Controller(model, view){
     }).done(function (data){
       view.roomAdd(data);
       console.log('room is added');
-      var item = {id: id};
-      model.roomAdd(item.id);
+      var item = {id};
+      model.roomAdd(item);
     });
     return false;
   };
@@ -181,6 +202,7 @@ function Controller(model, view){
   function roomDel (){
     var id = $(this).attr('value')
     view.roomDel(id);
+    model.roomDel(id);
     return false;
   };
 

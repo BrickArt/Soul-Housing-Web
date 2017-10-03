@@ -1,139 +1,152 @@
 function Model(data){
   var self = this;
 
+  self.data = data;
+
+  self.addItem = function (item) {
+    if (item.title.legth === 0){
+      return;
+    };
+    self.data.push(item);
+    return self.data;
+  };
+
+  self.removeItem = function (item) {
+    var index = self.data.indexOf(item);
+
+    self.data.splice(index, 1);
+    return self.data;
+  };
+
+  self.find = function (array, value) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].id == value) return i;
+    }
+    return -1;
+  };
+
 
 
 };
+
+
 
 function View(model){
   var self = this;
 
   self.elements = {
-    username: $('.username > input'),
-    password: $('.password > input'),
-    addBtn: $('.addBtn'),
-    block: $('.right'),
-    cancelBtn: $('.cancelUser'),
-    openBtn: $('.openBtn'),
-    delBtn: $('.gistDel'),
-    userBlock: $('.userBlock'),
-    add: $('.add')
-
+    left: $('.userBlock'),
+    right: $('.right'),
   };
 
-  self.addScreen = function (block, addBtn){
-    $.ajax({
-      method: "POST",
-      url: "/users/add"
-    }).done(function (data){
-      block.html(data);
-      addBtn.hide();
-      console.log('ok')
-    });
-  };
-  self.cancelAddUser = function (block, addBtn){
-    $.ajax({
-      method: "POST",
-      url: "/users/add/cancel",
-    }).done(function (data){
-      $('.add').slideUp();
-      addBtn.show();
-    });
+
+//==========Show-Hide==========
+
+//----------Plus button----------
+    self.addBtnShow = function (){
+      var button = self.elements.addBtn;
+      button.show();
+    };
+
+    self.addBtnHide = function (){
+      var button = self.elements.addBtn;
+      button.hide();
+    };
+
+//----------Right----------
+    self.rightShow = function (){
+      var right = self.elements.right;
+      right.show();
+    };
+
+    self.rightHide = function (){
+      var right = self.elements.right;
+      right.hide();
+    };
+
+
+//==========Functions==========
+
+  self.init = function (data) {
+    self.elements.left.html(data)
   };
 
-  self.userSave = function (title, status, id, userBlock, add, block){
-    $.ajax({
-      method: "POST",
-      url: "/users/add/add",
-      data: {
-        name: title,
-        status: status,
-        id: id,
-      },
-    }).done(function (data){
-      userBlock.append(data);
-      $('.tatata').slideUp();
-      console.log('done');
-    });
+  self.open = function (data){
+    var right = self.elements.right;
+    right.html(data);
   };
-  self.delete = function ( id){
-    $('#' + id).slideUp();
-    console.log('id is --- ' + id);
-    $('.tatata').hide();
-  };
+
+
+
 };
+
+
 
 function Controller(model, view){
   var self = this;
 
-  $(document).delegate(".addBtn", "click", add);
-  $(document).delegate( ".openBtn", "click", open);
-  $(document).delegate( ".cancelUser", "click", cancelUser);
-  $(document).delegate(".saveUser", "click", save);
-  $(document).delegate( ".userDel", "click", del);
-
-  function add(){
-    var block = view.elements.block;
-    var addBtn = view.elements.addBtn;
-
-    view.addScreen(block, addBtn);
-  };
+  $(document).delegate( ".userBtn", "click", open);
 
   function open (){
-    var block = view.elements.block;
-    var openBtn = view.elements.openBtn;
-    var addBtn = view.elements.addBtn;
     var id = $(this).attr('value');
-    console.log(id);
+    var i = model.find(model.data, id);
+    var item = model.data[i];
 
-    function openHouse (id, block){
-      $.ajax({
-        method: "POST",
-        url: "/users/open",
-        data: {
-          name: $('#gistName_' + id).html(),
-          adress: $('#gistStastus_' + id).html(),
-          id: id
-        }
-      }).done(function(data){
-        block.html(data);
-        addBtn.show();
-      });
-    };
-
-    openHouse(id, block);
+    $.ajax({
+      method: "POST",
+      url: "/users/open",
+      data: item
+    }).done(function(data){
+      console.log('ok')
+       view.open(data);
+       view.addBtnShow();
+       view.rightShow();
+    });
+    return false;
   };
 
-  function cancelUser() {
-    var block = view.elements.block;
-    var addBtn = view.elements.addBtn;
 
-    view.cancelAddUser(block, addBtn);
+
+  self.init = function () {
+    $.ajax({
+      method: "POST",
+      url: "/users/init",
+      data: {
+        users: model.data,
+      }
+    }).done(function(data){
+      view.init(data);
+      return;
+    });
   };
 
-  function save(){
-    var block = view.elements.block;
-    var add = view.elements.add;
-    var addBtn = view.elements.addBtn;
-    var userBlock = view.elements.userBlock;
-    var id = Date.now();
-    var title = $('.addTitle > input').val();
-    var status = $('.addStatus > input').val();
+  self.init();
 
-    view.userSave(title, status, id, userBlock, add, block);
-  };
-
-  function del (){
-    var id = $(this).attr('value');
-    console.log(del);
-    view.delete(id);
-  };
 
 
 };
 
+
+
+
 $(function(){
-  var data = {username: 'admin', password: 'admin'};
+  var data = [
+    {
+      name: 'Soul 1',
+      adress: '9055-9057 Normandie Ave',
+      id: 1
+    },
+    {
+      name: 'Soul 2',
+      adress: '9055 Normandie Ave',
+      id: 2
+    },
+    {
+      name: 'Soul 3',
+      adress: '9055-9057 Normandie Str',
+      id: 3
+    },
+  ];
   var model = new Model(data);
   var view = new View(model);
   var controller = new Controller(model, view);
