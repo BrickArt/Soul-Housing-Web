@@ -1,25 +1,40 @@
 .add
-  .addPhoto
-    button.uploadPhoto
-      img(src='png/cloud.png', alt='Cloud')
-      p Upload photo
-  .addText.addTitle
-    input(type="text", placeholder="Title")
+  .addHeader
+    .addPhoto
+      button.uploadPhoto
+        img(src='svg/addUserPhoto.svg', alt='Add photo')
+    .addName
+      .addNameTitle
+        input.name(type="text", placeholder="Name")
+        input.lastname(type="text", placeholder="Last name")
+      .addNameStatus
+        p Status
+        //- input(type="checkbox")
+        img(src='svg/checkbox.svg', alt='Checkbox')
+  .addText.addDate
+    input(type="text", placeholder="Date of birth")
+  .addText.addSex
+    select(class="")
+      option(disabled selected) Sex
+      option Male
+      option Female
+
   .addText.addAddress
     input(type="text", placeholder="Address")
-  .addText.addAddress
-    input(type="text", placeholder="Sex")
-  .addText.addStatus
-    input(type="text", placeholder="Status")
+  .addText.addPhone
+    input(type="text", placeholder="Phone number")
+  .addText.addProgram
+    select(class="")
+      option(disabled selected) Select program
+      option AABB
+      option CNM-OP
+  .addText.addShelter
+    select(class="")
+      option(disabled selected) Add shelter
+      option Soul 1
+      option Soul 3
   .addDiscription
     textarea(placeholder="Discription")
   .addButtons
     button.saveUser Save
     button.cancelUser Cancel
-
-
-
-
-
-
-script(src='js/users.js')

@@ -139,6 +139,10 @@ app.post('/users/init', function (req, res, next) {
   console.log(req.body)
   res.render('users/user-left', req.body);
 });
+app.put('/users/init', function (req, res, next) {
+  console.log(req.body)
+  res.render('users/users-open', req.body);
+});
 
 //----------open----------
 app.post('/users/open', function (req, res, next) {
@@ -148,10 +152,11 @@ app.post('/users/open', function (req, res, next) {
   res.sendStatus(200);
 });
 
+
 //----------add----------
 app.post('/users/add', function (req, res, next) {
-  res.render('user-add');
-  console.log("lalala");
+  res.render('users/user-add');
+  console.log("Open add panel!");
   res.sendStatus(200);
 });
 
@@ -179,6 +184,39 @@ app.get('/payments', function (req, res, next) {
   res.render('payments', {houses});
 });
 
+app.post('/payments/init', function (req, res, next) {
+  console.log(req.body);
+  res.render('payment/payments-left', req.body);
+  console.log('server ok')
+});
+
+app.put('/payments/init', function (req, res, next) {
+  console.log(req.body);
+  res.render('payment/payments-open', req.body);
+  console.log('server ok')
+});
+
+//----------open----------
+app.post('/payments/open', function (req, res, next) {
+  console.log(req.body)
+   res.render('payment/payments-open', req.body);
+  console.log("user " + req.body.id + " is opened!");
+  res.sendStatus(200);
+});
+
+app.post('/payments/info', function (req, res, next) {
+  console.log(req.body)
+   res.render('payment/payments-info', req.body);
+  console.log("user " + req.body.id + " is opened!");
+  res.sendStatus(200);
+});
+
+//----------add----------
+app.post('/payments/add', function (req, res, next) {
+  res.render('payment/payments-add', req.body);
+  console.log("Open add panel!");
+  res.sendStatus(200);
+});
 
 
 //==========REPORT==========

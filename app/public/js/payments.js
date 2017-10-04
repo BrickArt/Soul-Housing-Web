@@ -15,8 +15,9 @@ function Model(data){
     return self.data;
   }
 
-  self.add = function (item) {
-    self.data.push(item);
+  self.add = function (item, payment) {
+    var user = item.payments;
+    user.push(payment);
     return self.data;
   };
 
@@ -30,7 +31,7 @@ function View(model){
   var self = this;
 
   self.elements = {
-    left: $('.userBlock'),
+    left: $('.payBlock'),
     right: $('.right'),
     addBtn: $('.addBtn'),
 
@@ -65,12 +66,15 @@ function View(model){
 //==========Functions==========
 
   self.init = function (data) {
-    self.elements.left.html(data)
+    self.elements.left.html(data);
+    console.log('view');
   };
 
   self.initate = function (data) {
-    self.elements.right.html(data)
+    self.elements.right.html(data);
+    console.log('view');
   };
+
 
   self.open = function (data){
     var right = self.elements.right;
@@ -97,11 +101,10 @@ function Controller(model, view){
   var self = this;
 
   $(document).delegate( ".userBtn", "click", open);
-  $(document).delegate( ".userDel", "click", del);
-  //edit
-  $(document).delegate( ".addBtn", "click", add);
-  $(document).delegate( ".saveUser", "click", save);
-  $(document).delegate( ".cancelUser", "click", cancel);
+  $(document).delegate( ".gistPaymentsHistory", "click", add);
+  $(document).delegate( ".addSave", "click", save);
+  $(document).delegate( ".addCancel", "click", cancel);
+  $(document).delegate( ".gistShelterHistory", "click", info);
 
   function open (){
     var id = $(this).attr('value');
@@ -110,7 +113,7 @@ function Controller(model, view){
 
     $.ajax({
       method: "POST",
-      url: "/users/open",
+      url: "/payments/open",
       data: item
     }).done(function(data){
       console.log('ok')
@@ -121,20 +124,14 @@ function Controller(model, view){
     return false;
   };
 
-  function del () {
-    var id = $(this).attr('value');
-    var i = model.find(model.data, id);
-
-    model.del(i);
-    view.del(id);
-    view.addBtnShow();
-    view.rightHide();
-  }
-
   function add() {
+    var id = $(this).attr('value');
     $.ajax({
       method: "POST",
-      url: "/users/add",
+      url: "/payments/add",
+      data:{
+        id: id
+      }
     }).done(function (data){
       view.add(data);
       view.addBtnHide();
@@ -145,22 +142,19 @@ function Controller(model, view){
   };
 
   function save () {
-    var user = {
-      name: $('.name').val(),
-      lastName: $('.lastname').val(),
-      // status: ,
+    var user = $('.addSave').val();
+    var payment = {
       date: $('.addDate > input').val(),
-      sex: $('.addSex > select').val(),
-      address: $('.addAddress > input').val(),
-      phone: $('.addPhone > input').val(),
-      program: $('.addProgram > select').val(),
-      shelter: $('.addShelter > select').val(),
-      discription: $('.addDiscription > textarea').val(),
+      sum: $('.addCash > input').val(),
       id: Date.now(),
     };
     console.log(user);
+    console.log(payment);
+    var i = model.find(model.data, user);
+    console.log(i);
+    var item = model.data[i];
 
-    model.add(user);
+    model.add(item, payment);
     self.init();
     view.addBtnShow();
     view.rightHide();
@@ -175,6 +169,23 @@ function Controller(model, view){
     return false;
   };
 
+  function info () {
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+    var item = model.data[i];
+    console.log(item)
+    $.ajax({
+      method: "POST",
+      url: "/payments/info",
+      data: item
+    }).done(function(data){
+      console.log('ok')
+       view.open(data);
+       view.addBtnShow();
+       view.rightShow();
+    });
+    return false;
+  };
 
 
 
@@ -182,24 +193,27 @@ function Controller(model, view){
 
   self.init = function () {
     var item = model.data[0];
+    console.log('init');
     $.ajax({
       method: "POST",
-      url: "/users/init",
+      url: "/payments/init",
       data: {
         users: model.data,
       }
     }).done(function(data){
       view.init(data);
-      return;
+
     });
+    console.log(item)
     $.ajax({
       method: "PUT",
-      url: "/users/init",
+      url: "/payments/init",
       data: item,
     }).done(function(data){
       view.initate(data);
 
     });
+    return;
   };
 
   self.init();

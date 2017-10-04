@@ -26,46 +26,13 @@ block content
           .col-lg-7
             .scrollParent
               .scroll
-                each house in houses
-                  .article
-                    .gist
-                      h2 gist.name
-                      p lorem ipsum
-                    .gistStatus
-                      .Activity
-                        p PILOT
-                        p.active Active
-                      img.moreDetails(src='svg/join.svg', alt='join')
-                      
-                      
+                .payBlock
 
           .col-lg-5
             .scrollParent
               .scroll
-                .overview
-                  .overviewImg
-                  .overviewStatus
-                    .overviewStatusName
-                      h2 Sara Conor
-                    .overviewStatusBalance
-                      h3 Balance
-                      p -1234 $
-                    .overviewStatusLast
-                      h3 Last payment
-                      p 01/01/2017
-                  .overviewExcel
-                    button
-                      img(src='svg/excel.svg', alt='Exel')
-                each house in houses
-                  .payment
-                    .paymentData
-                      p 13.03.1995
-                      h3 1234 $
-                    .paymentDiscription
-                      p Department of Social Protection
-                      h3 CASH
+                .right
                   
                   
-                .overviewButtons
-                  button.gistPaymentsHistory.paymentBtn Add Payment
-                  button.gistShelterHistory.paymentBtn User Information
+                  
+    script(src='js/payments.js')

@@ -1,0 +1,27 @@
+.overview
+  .overviewImg
+  .overviewStatus
+    .overviewStatusName
+      h2= name + ' ' + lastName
+    .overviewStatusBalance
+      h3 Balance
+      p -1234 $
+    .overviewStatusLast
+      h3 Last payment
+      p 01/01/2017
+  .overviewExcel
+    button
+      img(src='svg/excel.svg', alt='Exel')
+each payment in payments
+  .payment
+    .paymentData
+      p= payment.date
+      h3 #{payment.sum} $
+    .paymentDiscription
+      p Department of Social Protection
+      h3 CASH
+  
+  
+.overviewButtons
+  button.gistPaymentsHistory.paymentBtn(value= id) Add Payment
+  button.gistShelterHistory.paymentBtn(value= id) User Information

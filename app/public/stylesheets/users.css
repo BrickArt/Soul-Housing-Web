@@ -80,6 +80,7 @@ body {
     float: left;
     display: block; }
     .article .gist h2, .article .gist p {
+      text-align: left;
       font-size: 14px;
       margin: 12px 0 0 15px; }
     .article .gist p {
@@ -166,17 +167,18 @@ body {
         float: left;
         display: block; }
       .col-lg-5 .overview .overviewStatus .statusHeader {
-        height: 115px; }
+        height: 100px; }
         .col-lg-5 .overview .overviewStatus .statusHeader p {
           float: right;
           font-weight: bold;
-          color: #F5A3A3; }
+          color: #F5A3A3;
+          margin-right: 10px; }
       .col-lg-5 .overview .overviewStatus .statusFoter .active {
         font-weight: bold;
         color: #8DBC5E;
         font-size: 16px;
         float: left;
-        margin: 5px 0 0 50px; }
+        margin: 5px 0 0 0; }
       .col-lg-5 .overview .overviewStatus .statusFoter p {
         float: left;
         font-size: 14px;
@@ -237,7 +239,7 @@ body {
       .col-lg-5 .overviewButtons .overviewControls .gistEdit {
         float: left;
         margin-left: 125px; }
-      .col-lg-5 .overviewButtons .overviewControls .gistDel {
+      .col-lg-5 .overviewButtons .overviewControls .userDel {
         float: right;
         margin-right: 125px; }
     .col-lg-5 .overviewButtons .houseAddPerson {
@@ -248,66 +250,57 @@ body {
       background-color: #fff; }
 
 .addPhoto {
-  height: 140px;
-  border-bottom: 1px solid #EDEDED; }
+  float: left;
+  margin: 7px 10px 0 7px; }
   .addPhoto .uploadPhoto {
     background-color: #fff;
-    border: none;
-    margin: 30px 0 0 175px;
-    color: #358DE0; }
+    border: none; }
+    .addPhoto .uploadPhoto img {
+      width: 96px; }
+    .addPhoto .uploadPhoto:hover {
+      cursor: pointer; }
+
+.addName .addNameTitle {
+  border-bottom: 1px solid #EDEDED;
+  height: 65px; }
+  .addName .addNameTitle .name {
+    float: left;
+    width: 150px;
+    margin-right: 20px;
+    margin-top: 17px;
+    border: none; }
+  .addName .addNameTitle .lastname {
+    width: 150px;
+    margin-top: 17px;
+    border: none; }
+
+.addName .addNameStatus {
+  border-bottom: 1px solid #EDEDED;
+  height: 65px; }
+  .addName .addNameStatus p {
+    color: #3B3B3B;
+    width: 200px;
+    float: left;
+    margin-top: 17px; }
+  .addName .addNameStatus img {
+    width: 50px;
+    float: right;
+    margin-top: 17px;
+    margin-right: 30px; }
 
 .addText {
   border-bottom: 1px solid #EDEDED;
   height: 65px;
   padding: 18px 15px 0 15px; }
-
-.addTitle input, .addAddress input {
-  border: none;
-  width: 100%; }
-  .addTitle input:focus, .addAddress input:focus {
-    outline: none; }
-
-.addRoom {
-  color: #95989A; }
-  .addRoom .addRoomLeft {
-    width: 150px;
-    float: left; }
-    .addRoom .addRoomLeft > .room {
-      float: left; }
-  .addRoom .addRoomRight {
-    margin-left: 240px;
-    height: 20px; }
-    .addRoom .addRoomRight input {
-      width: 20px;
-      float: left;
-      border: none;
-      margin: -2px 10px;
-      text-align: right;
-      font-size: 20px; }
-      .addRoom .addRoomRight input:focus {
-        outline: none; }
-    .addRoom .addRoomRight button {
-      float: left;
-      background-color: #fff;
-      border: none;
-      cursor: pointer; }
-      .addRoom .addRoomRight button:focus {
-        outline: none; }
-    .addRoom .addRoomRight p {
-      width: 50px;
-      float: left;
-      margin: 3px 0 0 15px; }
-
-.addRoomBtn {
-  padding: 0; }
-  .addRoomBtn button {
-    width: 430px;
-    margin: 10px 0px 10px 15px;
-    background-color: #358DE0;
-    color: #fff;
+  .addText input {
     border: none;
-    padding: 10px 0;
-    cursor: pointer; }
+    width: 100%;
+    border: none; }
+  .addText select {
+    border: none; }
+
+.addShelter select, .addProgram select {
+  width: 100%; }
 
 .addDiscription {
   min-height: 65px;
@@ -330,14 +323,14 @@ body {
   .addButtons button:hover {
     cursor: pointer; }
 
-.addButtons .addSave {
+.addButtons .saveUser {
   background-color: #8DBC5E; }
-  .addButtons .addSave:hover {
+  .addButtons .saveUser:hover {
     background-color: #A1D46E; }
 
-.addButtons .addCancel {
+.addButtons .cancelUser {
   background-color: #FF7722; }
-  .addButtons .addCancel:hover {
+  .addButtons .cancelUser:hover {
     background-color: #FD8D47; }
 
 /*# sourceMappingURL=users.css.map */
