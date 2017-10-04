@@ -311,6 +311,10 @@ body {
   width: 50px;
   text-align: right; }
 
+.addType {
+  border: none;
+  color: #808080; }
+
 .addButtons button {
   width: 430px;
   margin: 10px 0px 0 15px;

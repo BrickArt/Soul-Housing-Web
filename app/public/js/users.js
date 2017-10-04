@@ -20,6 +20,11 @@ function Model(data){
     return self.data;
   };
 
+  self.editSave = function (i, item){
+    self.data[i] = item;
+    return self.data;
+  };
+
 
 
 };
@@ -77,6 +82,11 @@ function View(model){
     right.html(data);
   };
 
+  self.edit = function (data) {
+    var right = self.elements.right;
+    right.html(data);
+  }
+
   self.del = function (id) {
     $('#' + id).slideUp();
     return self.data;
@@ -98,10 +108,12 @@ function Controller(model, view){
 
   $(document).delegate( ".userBtn", "click", open);
   $(document).delegate( ".userDel", "click", del);
-  //edit
+  $(document).delegate( ".gistEdit", "click", edit);
   $(document).delegate( ".addBtn", "click", add);
   $(document).delegate( ".saveUser", "click", save);
   $(document).delegate( ".cancelUser", "click", cancel);
+
+  $(document).delegate( ".editSaveUser", "click", editSave);
 
   function open (){
     var id = $(this).attr('value');
@@ -141,6 +153,46 @@ function Controller(model, view){
       view.rightShow();
       console.log('ok')
     });
+    return false;
+  };
+
+  function edit () {
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+    var item = model.data[i];
+    $.ajax({
+      method: "POST",
+      url: "/users/edit",
+      data: item,
+    }).done(function (data){
+      view.edit(data);
+      view.addBtnHide();
+      view.rightShow();
+      console.log('ok')
+    });
+    return false;
+  };
+
+  function editSave () {
+    var user = {
+      name: $('.name').val(),
+      lastName: $('.lastname').val(),
+      date: $('.addDate > input').val(),
+      sex: $('.addSex > select').val(),
+      address: $('.addAddress > input').val(),
+      phone: $('.addPhone > input').val(),
+      program: $('.addProgram > select').val(),
+      shelter: $('.addShelter > select').val(),
+      discription: $('.addDiscription > textarea').val(),
+    };
+    console.log(user);
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+
+    model.editSave(i, user);
+    self.init();
+    view.addBtnShow();
+
     return false;
   };
 
@@ -216,8 +268,16 @@ $(function(){
       name: 'Sarah',
       lastName: 'Conor',
       address: '9055-9057 Normandie Ave',
+      status: 'Active',
+      phone: '+380631553729',
+      program: 'USSDA',
+      sex: 'Famale',
+      shelter: 'Soul 1',
+      shelterHistory: [],
+      discription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
       id: 1,
-      date: '01.01.2007',
+      date: '2017-10-06',
       payments:[
         {date: '01.02.2013', sum: '1234'},
         {date: '01.02.2013', sum: '1234'},
@@ -231,8 +291,16 @@ $(function(){
       name: 'John',
       lastName: 'Dou',
       address: '9055 Normandie Ave',
+      status: 'Active',
+      phone: '+123456789987',
+      program: 'USSDA',
+      sex: 'Male',
+      shelter: 'Soul 1',
+      shelterHistory: [],
+      discription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
       id: 2,
-      date: '12.10.1996',
+      date: '1996-12-09',
       payments:[
         {date: '01.02.2013', sum: '1234'},
         {date: '01.02.2013', sum: '1234'},
@@ -246,8 +314,16 @@ $(function(){
       name: 'Lary',
       lastName: 'Zibherman',
       address: '9055-9057 Normandie Str',
+      status: 'Active',
+      phone: '+08004566541',
+      program: 'USSDA',
+      sex: 'Male',
+      shelter: 'Soul 1',
+      shelterHistory: [],
+      discription: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+
       id: 3,
-      date: '30.06.2020',
+      date: '2020-08-14',
       payments:[
         {date: '01.02.2013', sum: '1234'},
         {date: '01.02.2013', sum: '1234'},

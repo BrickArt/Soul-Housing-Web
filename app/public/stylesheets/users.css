@@ -323,9 +323,9 @@ body {
   .addButtons button:hover {
     cursor: pointer; }
 
-.addButtons .saveUser {
+.addButtons .saveUser, .addButtons .editSaveUser {
   background-color: #8DBC5E; }
-  .addButtons .saveUser:hover {
+  .addButtons .saveUser:hover, .addButtons .editSaveUser:hover {
     background-color: #A1D46E; }
 
 .addButtons .cancelUser {

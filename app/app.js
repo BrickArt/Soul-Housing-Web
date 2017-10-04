@@ -152,6 +152,14 @@ app.post('/users/open', function (req, res, next) {
   res.sendStatus(200);
 });
 
+//----------edit----------
+app.post('/users/edit', function (req, res, next) {
+  console.log(req.body)
+   res.render('users/user-edit', req.body);
+  console.log("user " + req.body.id + " is edit!");
+  res.sendStatus(200);
+});
+
 
 //----------add----------
 app.post('/users/add', function (req, res, next) {

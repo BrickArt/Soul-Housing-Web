@@ -4,11 +4,16 @@
       img(src='png/cloud.png', alt='Cloud')
       p Upload photo
   .addText.addDate
-    input(type="text", placeholder="Select date")
+    input(type="date", placeholder="Select date")
   .addText.addCash
     p Enrollment amount:
     input(type="text", placeholder="100")
     p $
+  .addText
+    select(class="").addType
+      option(disabled selected) Type of payment
+      option CASH
+      option Department
   .addButtons
     button.addSave(value= id) Save
     button.addCancel Cancel

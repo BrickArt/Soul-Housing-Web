@@ -2,8 +2,8 @@ each user in users
   .article(id= user.id)
     button.userBtn(value= user.id)
       .gist
-        h2(id= 'gistName_' + user.id)= user.name
-        p lorem ipsum
+        h2(id= 'gistName_' + user.id)= user.name + ' ' + user.lastName
+        p= user.address
       .gistStatus
         .Activity
           p PILOT
