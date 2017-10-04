@@ -85,7 +85,7 @@ function View(model){
   self.edit = function (data) {
     var right = self.elements.right;
     right.html(data);
-  }
+  };
 
   self.del = function (id) {
     $('#' + id).slideUp();
@@ -114,6 +114,11 @@ function Controller(model, view){
   $(document).delegate( ".cancelUser", "click", cancel);
 
   $(document).delegate( ".editSaveUser", "click", editSave);
+  $(document).delegate( ".pay", "click", pay);
+  $(document).delegate( ".back", "click", open);
+  $(document).delegate( ".history", "click", history);
+  $(document).delegate( ".place", "click", place);
+
 
   function open (){
     var id = $(this).attr('value');
@@ -132,6 +137,62 @@ function Controller(model, view){
     });
     return false;
   };
+
+  function pay (){
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+    var item = model.data[i];
+
+    $.ajax({
+      method: "POST",
+      url: "/users/info",
+      data: item
+    }).done(function(data){
+      console.log('ok')
+       view.open(data);
+       view.addBtnShow();
+       view.rightShow();
+    });
+    return false;
+  };
+
+  function history (){
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+    var item = model.data[i];
+
+    $.ajax({
+      method: "POST",
+      url: "/users/history",
+      data: item
+    }).done(function(data){
+      console.log('ok')
+       view.open(data);
+       view.addBtnShow();
+       view.rightShow();
+    });
+    return false;
+  };
+
+  function place (){
+    var id = $(this).attr('value');
+    var i = model.find(model.data, id);
+    var item = model.data[i];
+
+    $.ajax({
+      method: "POST",
+      url: "/users/edit",
+      data: item
+    }).done(function(data){
+      console.log('ok')
+       view.open(data);
+       view.addBtnShow();
+       view.rightShow();
+    });
+    return false;
+  };
+
+
 
   function del () {
     var id = $(this).attr('value');
@@ -279,12 +340,12 @@ $(function(){
       id: 1,
       date: '2017-10-06',
       payments:[
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
       ],
     },
     {
@@ -302,12 +363,12 @@ $(function(){
       id: 2,
       date: '1996-12-09',
       payments:[
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
       ],
     },
     {
@@ -325,12 +386,12 @@ $(function(){
       id: 3,
       date: '2020-08-14',
       payments:[
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
-        {date: '01.02.2013', sum: '1234'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
+        {date: '01.02.2013', sum: '1234', type: 'CASH'},
       ],
     },
   ];

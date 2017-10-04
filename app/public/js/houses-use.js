@@ -268,7 +268,6 @@ function Controller(model, view){
 
 
   self.init = function () {
-    var item = model.data[0];
     $.ajax({
       method: "POST",
       url: "/houses/init",
@@ -279,14 +278,7 @@ function Controller(model, view){
       view.init(data);
       return;
     });
-    $.ajax({
-      method: "PUT",
-      url: "/houses/init",
-      data: item,
-    }).done(function(data){
-      view.initate(data);
 
-    });
   };
 
   self.init();

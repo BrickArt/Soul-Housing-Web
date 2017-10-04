@@ -300,7 +300,8 @@ body {
     border: none; }
 
 .addShelter select, .addProgram select {
-  width: 100%; }
+  width: 30%;
+  margin-left: 10px; }
 
 .addDiscription {
   min-height: 65px;
@@ -332,5 +333,113 @@ body {
   background-color: #FF7722; }
   .addButtons .cancelUser:hover {
     background-color: #FD8D47; }
+
+.payment {
+  height: 75px;
+  border-bottom: 1px solid #EDEDED;
+  padding: 15px 0 12px 22px; }
+  .payment .paymentData {
+    padding: 0 0 0 18px;
+    float: left; }
+    .payment .paymentData > p {
+      font-size: 14px;
+      margin: 0; }
+    .payment .paymentData > h3 {
+      font-size: 18px;
+      margin: 0;
+      color: #8DBC5E;
+      text-align: center; }
+  .payment .paymentDiscription {
+    margin: -3px 0 0 175px;
+    color: #3B3B3B; }
+    .payment .paymentDiscription > p {
+      font-size: 18px;
+      margin: 0; }
+    .payment .paymentDiscription > h3 {
+      font-size: 20px;
+      margin: 0; }
+
+.i {
+  padding: 11px 0 12px 10px; }
+  .i .paymentBtn {
+    width: 430px;
+    height: 48px;
+    color: #fff;
+    border: none;
+    margin-bottom: 0;
+    margin-left: 0; }
+    .i .paymentBtn:focus {
+      outline: none; }
+  .i .gistPaymentsHistory {
+    background-color: #5E82BC;
+    margin-bottom: 12px; }
+    .i .gistPaymentsHistory:hover {
+      background-color: #358DE0;
+      cursor: pointer; }
+  .i .gistShelterHistory {
+    background-color: #D1A661; }
+    .i .gistShelterHistory:hover {
+      background-color: #FA8787;
+      cursor: pointer; }
+
+.a {
+  border-bottom: 1px solid #EDEDED;
+  padding: 7px 0 10px 10px;
+  left: -20px;
+  height: 130px; }
+  .a .aa {
+    float: left;
+    display: block;
+    width: 107px;
+    height: 107px;
+    border-radius: 50%;
+    background: url("../png/gist.png");
+    background-size: auto 107px; }
+    .a .aa > img {
+      width: 156px;
+      height: 156px;
+      border-radius: 50%; }
+
+.aaa {
+  margin: 0 0 0 80px;
+  height: 100px;
+  width: 165px;
+  float: left; }
+  .aaa .aaaa {
+    margin-bottom: 25px; }
+    .aaa .aaaa > h2 {
+      font-size: 20px; }
+  .aaa .b > h3 {
+    font-size: 18px;
+    float: left;
+    margin: 9px 0 0 0; }
+  .aaa .b > p {
+    font-size: 24px;
+    color: #F5A3A3;
+    font-weight: bold;
+    margin: 0 0 0 70px; }
+  .aaa .bb {
+    margin-top: 5px; }
+  .aaa .bb > h3 {
+    font-size: 14px;
+    float: left;
+    margin: 3px 5px 0 0; }
+  .aaa .bb > p {
+    font-size: 14px; }
+
+.overviewExcel {
+  margin: 0 0 0 405px; }
+  .overviewExcel > button {
+    background-color: #fff;
+    border: none; }
+    .overviewExcel > button:focus {
+      outline: none; }
+    .overviewExcel > button:hover {
+      cursor: pointer; }
+    .overviewExcel > button > img {
+      width: 30px; }
+
+.ulala {
+  left: 100px; }
 
 /*# sourceMappingURL=users.css.map */

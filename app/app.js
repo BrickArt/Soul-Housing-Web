@@ -87,14 +87,28 @@ app.get('/houses', function (req, res, next) {
   res.render('houses', {houses});
 });
 
+app.post('/houses/init', function (req, res, next) {
+  console.log(req.body)
+  res.render('houses/houses-left', req.body);
+});
+app.put('/houses/init', function (req, res, next) {
+  console.log(req.body)
+  res.render('houses/houses-open', req.body);
+});
+
+
 //----------open----------
 app.post('/houses/open', function (req, res, next) {
   console.log(req.body)
-  res.render('houses/houses-open', {
-    name: req.body.name,
-    adress: req.body.adress,
-    id: req.body.id,
-  });
+  res.render('houses/houses-open', req.body);
+  res.sendStatus(200);
+});
+
+//----------edit----------
+app.post('/houses/edit', function (req, res, next) {
+  console.log(req.body)
+   res.render('houses/houses-edit', req.body);
+  console.log("house " + req.body.id + " is edit!");
   res.sendStatus(200);
 });
 
@@ -133,6 +147,17 @@ app.post('/houses/cancel', function (req, res, next) {
 //==========USERS==========
 app.get('/users', function (req, res, next) {
   res.render('users', {houses});
+});
+
+
+app.post('/users/info', function (req, res, next) {
+  console.log(req.body)
+  res.render('users/user-payment', req.body);
+});
+
+app.post('/users/history', function (req, res, next) {
+  console.log(req.body)
+  res.render('users/user-history', req.body);
 });
 
 app.post('/users/init', function (req, res, next) {

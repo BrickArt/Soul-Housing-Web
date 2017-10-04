@@ -1,12 +1,12 @@
-.overview
-  .overviewImg
-  .overviewStatus
-    .overviewStatusName
+.a
+  .aa
+  .aaa
+    .aaaa
       h2= name + ' ' + lastName
-    .overviewStatusBalance
+    .b
       h3 Balance
       p -1234 $
-    .overviewStatusLast
+    .bb
       h3 Last payment
       p 01/01/2017
   .overviewExcel
@@ -22,6 +22,6 @@ each payment in payments
       h3 #{payment.type}
   
   
-.overviewButtons
+.i
   button.gistPaymentsHistory.paymentBtn(value= id) Add Payment
-  button.gistShelterHistory.paymentBtn(value= id) User Information
+  button.gistShelterHistory.paymentBtn.back(value= id) User Information

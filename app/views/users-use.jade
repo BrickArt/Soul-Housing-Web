@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/houses.css')
+  body
+    .container
+      .header
+        .navBlock
+          button.nav
+            img.navImg1(src='svg/graphic.svg', alt='Graphic', onClick='location.href="/report"')
+            h1 Report
+          button.nav
+            img.navImg2(src='svg/house.svg', alt='House', onClick='location.href="/houses"')
+            h1 Houses
+          button.nav
+            img.navImg3(src='svg/people.svg', alt='People', onClick='location.href="/users"')
+            h1 Users
+          button.nav
+            img.navImg4(src='svg/dollar-coins.svg', alt='Dollar-coins', onClick='location.href="/payments"')
+            h1 Payments
+            
+            
+      .mainBlock
+        .row
+          .col-lg-7
+            .scrollParent
+              .scroll
+                .houseBlock
+                  
+                  
+            button.addBtn
+              p +
+              
+              
+          .col-lg-5
+            .scrollParent
+              .scroll
+                .right
+                  .overview
+                    .overviewImg
+                    .overviewStatus
+                      .statusHeader
+                        h2= name + ' ' + lastName
+                        p PILOT
+                      .statusFoter
+                        h3.active= status
+                  
+                        p (Soul 7)
+                        img(src='png/Airplane Mode toggle.png', alt='Toggle')
+                  .overviewBith.overviewName
+                    p= date
+                  .overviewSex.overviewName
+                    p= sex
+                  .overviewBith.overviewName
+                    p= address
+                  .overviewSex.overviewName
+                    p= phone
+                  .overviewText
+                    p= discription
+                  .overviewButtons
+                    .overviewControls
+                      button.gistEdit(value= id)
+                        img(src='png/edit.png', alt='Edit')
+                        p Edit
+                      button.userDel(value= id)
+                        img(src='png/del.png', alt='Del')
+                        p Del
+                    button.gistPlace.gistBtn Place
+                    button.gistPaymentsHistory.gistBtn Payments History
+                    button.gistShelterHistory.gistBtn Shelter History
+
+                  
+                  
+                
+          
+      
+      
+      
+      
+      
+    script(src='js/houses-use.js')

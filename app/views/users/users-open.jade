@@ -27,6 +27,6 @@
     button.userDel(value= id)
       img(src='png/del.png', alt='Del')
       p Del
-  button.gistPlace.gistBtn Place
-  button.gistPaymentsHistory.gistBtn Payments History
-  button.gistShelterHistory.gistBtn Shelter History
+  button.gistPlace.gistBtn.place(value= id) Place
+  button.gistPaymentsHistory.gistBtn.pay(value= id) Payments History
+  button.gistShelterHistory.gistBtn.history(value= id) Shelter History

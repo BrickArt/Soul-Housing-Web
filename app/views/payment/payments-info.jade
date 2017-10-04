@@ -5,20 +5,28 @@
       h2= name + ' ' + lastName
       p PILOT
     .statusFoter
-      h3.active Active
+      h3.active= status
+
       p (Soul 7)
       img(src='png/Airplane Mode toggle.png', alt='Toggle')
 .overviewBith.overviewName
   p= date
 .overviewSex.overviewName
-  p Female
+  p= sex
 .overviewBith.overviewName
   p= address
 .overviewSex.overviewName
-  p +123456789987
+  p= phone
 .overviewText
-  p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaullamco laboris nisi ut aliquip ex ea commodo consequat.quis nostrud exercitation 
+  p= discription
 .overviewButtons
-  
-  button.addCancel.gistBtn Cancel
-  
+  .overviewControls
+    button.gistEdit(value= id)
+      img(src='png/edit.png', alt='Edit')
+      p Edit
+    button.userDel(value= id)
+      img(src='png/del.png', alt='Del')
+      p Del
+  button.gistPlace.gistBtn(value= id) Place
+  button.gistBtn.userBtn(value= id) Payments History
+  button.gistShelterHistory.gistBtn(value= id) Shelter History

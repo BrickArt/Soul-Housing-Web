@@ -7,6 +7,7 @@ $border-color: #EDEDED
 $text-color: #95989A
 $btn-color: #5E82BC
 $white-color: #fff
+$black-text-color: #3B3B3B
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400')
 
@@ -349,7 +350,8 @@ body
     border: none
 .addShelter, .addProgram
   select
-    width: 100%
+    width: 30%
+    margin-left: 10px
 
 .addDiscription
   min-height: 65px
@@ -382,3 +384,119 @@ body
     &:hover
       background-color: #FD8D47
   .editSaveUser
+
+
+.payment
+  height: 75px
+  border-bottom: 1px solid $border-color
+  padding: 15px 0 12px 22px
+  .paymentData
+    padding: 0 0 0 18px
+    float: left
+    &>p
+      font-size: 14px
+      margin: 0
+    &>h3
+      font-size: 18px
+      margin: 0
+      color: $green-color
+      text-align: center
+  .paymentDiscription
+    margin: -3px 0 0 175px
+    color: $black-text-color
+    &>p
+      font-size: 18px
+      margin: 0
+    &>h3
+      font-size: 20px
+      margin: 0
+
+
+.i
+  padding: 11px 0 12px 10px
+  .paymentBtn
+    width: 430px
+    height: 48px
+    color: #fff
+    border: none
+    margin-bottom: 0
+    margin-left: 0
+    &:focus
+      outline: none
+
+  .gistPaymentsHistory
+    background-color: $btn-color
+    margin-bottom: 12px
+    &:hover
+      background-color: $primary-color
+      cursor: pointer
+  .gistShelterHistory
+    background-color: $red-btn
+    &:hover
+      background-color: #FA8787
+      cursor: pointer
+
+
+
+.a
+  border-bottom: 1px solid $border-color
+  padding: 7px 0 10px 10px
+  left: -20px
+  height: 130px
+
+  .aa
+    float: left
+    display: block
+    width: 107px
+    height: 107px
+    border-radius: 50%
+    background: url('../png/gist.png')
+    background-size: auto 107px
+    &>img
+      width: 156px
+      height: 156px
+      border-radius: 50%
+
+.aaa
+  margin: 0 0 0 80px
+  height: 100px
+  width: 165px
+  float: left
+  .aaaa
+    margin-bottom: 25px
+    &>h2
+      font-size: 20px
+  .b>h3
+    font-size: 18px
+    float: left
+    margin: 9px 0 0 0
+  .b>p
+    font-size: 24px
+    color: $red-color
+    font-weight: bold
+    margin: 0 0 0 70px
+  .bb
+    margin-top: 5px
+  .bb>h3
+    font-size: 14px
+    float: left
+    margin: 3px 5px 0 0
+  .bb>p
+    font-size: 14px
+
+
+.overviewExcel
+  margin: 0 0 0 405px
+  &>button
+    background-color: $white-color
+    border: none
+    &:focus
+      outline: none
+    &:hover
+      cursor: pointer
+    &>img
+      width: 30px
+
+
+.ulala
+  left: 100px

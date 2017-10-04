@@ -353,4 +353,22 @@ body {
     cursor: pointer;
     background-color: #FD8D47; }
 
+.overviewControls {
+  margin-bottom: 10px; }
+  .overviewControls > button {
+    width: 100px;
+    background-color: #fff;
+    border: none;
+    color: #808080; }
+    .overviewControls > button:focus {
+      outline: none; }
+    .overviewControls > button:hover {
+      cursor: pointer; }
+  .overviewControls .gistEdit {
+    float: left;
+    margin-left: 125px; }
+  .overviewControls .gistDel {
+    float: right;
+    margin-right: 125px; }
+
 /*# sourceMappingURL=payments.css.map */

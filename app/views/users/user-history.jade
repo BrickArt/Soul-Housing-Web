@@ -1,0 +1,23 @@
+.overview
+  .overviewImg
+  .overviewStatus
+    .statusHeader
+      h2= name + ' ' + lastName
+      p PILOT
+    .statusFoter
+      h3.active= status
+
+      p (Soul 7)
+      img(src='png/Airplane Mode toggle.png', alt='Toggle')
+each payment in payments
+  .payment
+    .paymentData
+      p Soul 1
+      p Room 5
+    .paymentDiscription.ulala
+      p in: #{payment.date}
+      p out: #{payment.date}
+  
+  
+.i
+  button.gistShelterHistory.paymentBtn.back(value= id) User Information

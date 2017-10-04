@@ -216,11 +216,23 @@ body {
 .addPhoto {
   height: 140px;
   border-bottom: 1px solid #EDEDED; }
+  .addPhoto > img {
+    width: 130px;
+    margin-left: 165px; }
   .addPhoto .uploadPhoto {
     background-color: #fff;
     border: none;
-    margin: 30px 0 0 175px;
-    color: #358DE0; }
+    margin: 5px 0 0 155px;
+    color: #358DE0;
+    width: 150px;
+    font-size: 13px; }
+    .addPhoto .uploadPhoto img {
+      float: left;
+      width: 20px; }
+    .addPhoto .uploadPhoto p {
+      margin-bottom: 0; }
+    .addPhoto .uploadPhoto:hover {
+      cursor: pointer; }
 
 .addText {
   border-bottom: 1px solid #EDEDED;
